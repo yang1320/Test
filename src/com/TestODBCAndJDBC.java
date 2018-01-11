@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import net.sf.json.JSONObject;
-import sun.jdbc.odbc.JdbcOdbcDriver;
+//import sun.jdbc.odbc.JdbcOdbcDriver; jdk1.7对应类
 
 public class TestODBCAndJDBC {
 
@@ -23,7 +23,7 @@ public class TestODBCAndJDBC {
 	}
 	
 	/**
-	 *  jdk 1.8 不在使用odbc方式。如果仍要使用需还jdk1.8之前的版本
+	 *  jdk 1.8 不在使用odbc方式。如果仍要使用需还jdk1.8之前的版本 
 	 *  
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
