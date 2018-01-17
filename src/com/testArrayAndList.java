@@ -1,5 +1,7 @@
 package com;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -13,12 +15,9 @@ public class testArrayAndList {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Integer[] intarr=new Integer[]{1,2};
-		List list = Arrays.asList(intarr);
-		System.out.println("ss"+list.get(0));
-		for (Integer integer : intarr) {
-			System.out.println(integer);
-		}
+		List list=new ArrayList();
+	
+		System.out.println(list instanceof Iterable);
 	}
 	
 	@Test
@@ -65,4 +64,17 @@ public class testArrayAndList {
 		
 	}
 
+	@Test
+	public void testOfArrList(){
+		Integer[] intarr=new Integer[]{1,2};
+		List list = Arrays.asList(intarr);
+		List<Object> obj=Arrays.asList(new Object());
+		System.out.println("判断对象是否为数组:\t"+list.getClass().isArray());//仅数组时为true;集合为false
+		System.out.println("ss"+list.get(0));
+		for (Integer integer : intarr) {
+			System.out.println(integer);
+		}
+	}
+	
+	
 }

@@ -1,11 +1,19 @@
 package com;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.junit.Test;
 
 
+
+
+
+
+
 import net.sf.json.JSON;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.util.JSONUtils;
 
@@ -79,5 +87,25 @@ public class TestJson {
 //			return "Student [name=" + name + ", age=" + age + "]";
 //		}
 		
+	}
+	
+	
+	public String toJson(Object object) throws Exception{
+		String jsonString;
+		if (object==null)
+			throw new Exception("the target can not be null!");
+				
+		try {
+			if(object instanceof Iterable || object.getClass().isArray() ){ 
+				jsonString=JSONArray.fromObject(object).toString();
+			}else{
+				jsonString=JSONObject.fromObject(object).toString();
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			throw new Exception("json convert error!");
+		}
+
+		return jsonString;
 	}
 }
