@@ -19,10 +19,10 @@ public class TestCache
 
     public void cache()
     {
-        CacheManager cacheManager = CacheManagerBuilder.newCacheManagerBuilder().withCache("preConfigured", CacheConfigurationBuilder.newCacheConfigurationBuilder(java/lang/Long, java/lang/String, ResourcePoolsBuilder.heap(10L))).build();
+        CacheManager cacheManager = CacheManagerBuilder.newCacheManagerBuilder().withCache("preConfigured", CacheConfigurationBuilder.newCacheConfigurationBuilder(Long.class, String.class, ResourcePoolsBuilder.heap(10L))).build();
         cacheManager.init();
-        Cache preConfigured = cacheManager.getCache("preConfigured", java/lang/Long, java/lang/String);
-        Cache myCache = cacheManager.createCache("myCache", CacheConfigurationBuilder.newCacheConfigurationBuilder(java/lang/Long, java/lang/String, ResourcePoolsBuilder.heap(10L)));
+        Cache preConfigured = cacheManager.getCache("preConfigured", Long.class, String.class);
+        Cache myCache = cacheManager.createCache("myCache", CacheConfigurationBuilder.newCacheConfigurationBuilder( Long.class, String.class, ResourcePoolsBuilder.heap(10L)));
         myCache.put(Long.valueOf(1L), "da one!");
         String value = (String)myCache.get(Long.valueOf(1L));
         cacheManager.removeCache("preConfigured");
