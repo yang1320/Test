@@ -2,31 +2,34 @@
 
 package com;
 
-import org.ehcache.Cache;
-import org.ehcache.CacheManager;
-import org.ehcache.config.builders.*;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
+
+import net.sf.ehcache.*;
+import net.sf.json.JSONObject;
+
 
 public class TestCache
 {
 
     public TestCache()
     {
+    	
     }
 
-    public static void main(String args1[])
+    public static void main(String args1[]) throws CacheException, FileNotFoundException 
     {
+    	CacheManager cacheManager=CacheManager.create(new FileInputStream(new File("source\\ehcache.xml")));
+    	System.out.println(cacheManager.getCache("HelloWorldCache").getDiskStoreSize());
+    	
     }
 
     public void cache()
     {
-        CacheManager cacheManager = CacheManagerBuilder.newCacheManagerBuilder().withCache("preConfigured", CacheConfigurationBuilder.newCacheConfigurationBuilder(Long.class, String.class, ResourcePoolsBuilder.heap(10L))).build();
-        cacheManager.init();
-        Cache preConfigured = cacheManager.getCache("preConfigured", Long.class, String.class);
-        Cache myCache = cacheManager.createCache("myCache", CacheConfigurationBuilder.newCacheConfigurationBuilder( Long.class, String.class, ResourcePoolsBuilder.heap(10L)));
-        myCache.put(Long.valueOf(1L), "da one!");
-        String value = (String)myCache.get(Long.valueOf(1L));
-        cacheManager.removeCache("preConfigured");
-        cacheManager.close();
+
     }
 }
 

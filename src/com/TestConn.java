@@ -24,9 +24,9 @@ public class TestConn
         }
         try
         {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://118.89.25.163:3306/test1", "root", "123456");
-            System.out.println((new StringBuilder("118.89.25.163\u8FDE\u63A5\uFF1A")).append(conn).toString());
-            for(ResultSet rs = conn.prepareStatement(" select count(*) from emp ").executeQuery(); rs.next(); System.out.println((new StringBuilder("emp \u603B\u6761\u6570\uFF1A")).append(rs.getInt(1)).toString()));
+            Connection conn = DriverManager.getConnection("jdbc:mysql://123.207.16.83:3306/test1", "root", "1320");
+            System.out.println((new StringBuilder("123.207.16.83链接为：")).append(conn).toString());
+            for(ResultSet rs = conn.prepareStatement(" select count(*) from emp ").executeQuery(); rs.next(); System.out.println((new StringBuilder("emp 统计总数：")).append(rs.getInt(1)).toString()));
             conn.close();
         }
         catch(SQLException e)
@@ -35,8 +35,8 @@ public class TestConn
         }
         try
         {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test1", "root", "123456");
-            System.out.println((new StringBuilder("\u672C\u5730\u8FDE\u63A5\uFF1A")).append(conn).toString());
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test1", "root", "1320");
+            System.out.println((new StringBuilder("本地链接为：")).append(conn).toString());
         }
         catch(SQLException e)
         {

@@ -1,23 +1,16 @@
 package com;
 
-import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.net.URL;
 
-import sun.misc.BASE64Decoder;
+import com.bean.Emp;
 
-import com.google.common.base.Charsets;
-import com.google.common.hash.Hashing;
-import com.tool.Encryption;
-
-
-
+import net.sf.ehcache.CacheManager;
+import net.sf.json.JSONObject;
 
 
 public class Test2 {
-	public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
-		
-		Object object = "111";
-		System.out.println(object instanceof Integer);
+	public static void main(String[] args)  {
+		CacheManager singletonManager = CacheManager.create();
+		System.out.println(JSONObject.fromObject(singletonManager));
 	}
 }

@@ -17,7 +17,7 @@ public class Test1 {
 		System.out.println(new TestJson().toJson(list.toArray()));
 		System.out.println(new TestJson().toJson(stu));
 		
-		 
+		
 	}
 
 	
