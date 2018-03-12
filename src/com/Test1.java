@@ -2,27 +2,32 @@ package com;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 
 
 
 
 public class Test1 {
 	
-	public static void main(String[] args) throws Exception {
-		List list=new ArrayList();
-		Student1 stu=new Student1("张三", 18, (long) 18, null);
-		list.add(stu);
-		System.out.println(new TestJson().toJson(list));
-		System.out.println(new TestJson().toJson(list.toArray()));
-		System.out.println(new TestJson().toJson(stu));
+	public static Map map=new HashMap();
+	public static int b=map.size();
+	public static void main(String[] args){
 		
-		
+		b=5;
+		map.put("a", "");
+		map.put("a1", "");
+		// B 值保留	map.put("a2", "");		// B 值保留
+		System.out.println(map.size());
+		System.out.println(b);
+		// B 值保留
 	}
-
 	
-	
-	
-
 
 }
+	
+
