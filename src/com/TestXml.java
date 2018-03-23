@@ -1,6 +1,7 @@
 package com;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
@@ -8,6 +9,8 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+
+import net.sf.json.JSONObject;
 
 import org.dom4j.Attribute;
 import org.dom4j.DocumentException;
@@ -25,19 +28,15 @@ public class TestXml {
 		 * 　　XML的解析方式分为四种：1、DOM解析；2、SAX解析；3、JDOM解析；4、DOM4J解析。
 		 * 其中前两种属于基础方法，是官方提供的平台无关的解析方式；
 		 * 后两种属于扩展方法，它们是在基础的方法上扩展出来的，只适用于java平台。
-		 * @throws IOException 
-		 * @throws SAXException 
-		 * @throws ParserConfigurationException 
-		 * @throws DocumentException 
+		 * @throws Exception 
 		 */
-	
-	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException, DocumentException {
-//		DomParse();
-		Dom4jParse();
+	public static void main(String[] args) throws Exception {
+		Dom4jWeixinXml();
+
 	}
 	
 	@Test
-	public static void DomParse() throws ParserConfigurationException,IOException, SAXException{
+	public void DomParse() throws ParserConfigurationException,IOException, SAXException{
 		DocumentBuilderFactory dbf=DocumentBuilderFactory.newInstance();
 		DocumentBuilder  db=dbf.newDocumentBuilder();
 		Document document=db.parse("source/book.xml");
@@ -59,7 +58,7 @@ public class TestXml {
 	
 	
 	@Test
-	public static void Dom4jParse() throws DocumentException{
+	public void Dom4jParse() throws DocumentException{
 		SAXReader reader=new SAXReader();
 		org.dom4j.Document document=reader.read(new File("source/book.xml"));
 		org.dom4j.Element element=document.getRootElement();
@@ -101,4 +100,22 @@ public class TestXml {
 	}
 	
 
+	/**
+	 * 
+	 * @Title: Dom4jWeixinXml   
+	 * @Description: TODO(用dom4j解析微信数据[格式为xml])   
+	 * @param: @throws Exception      
+	 * @return: void      
+	 * @throws
+	 */
+	@Test
+	public static void Dom4jWeixinXml() throws Exception{
+		SAXReader reader=new SAXReader();
+		org.dom4j.Document dom=reader.read(new File("source/weixin.xml"));
+		org.dom4j.Element element=dom.getRootElement();
+		
+		System.out.println("dom json解析："+dom);
+		System.out.println("time:"+element.selectSingleNode("MsgType").getText());
+		
+	}
 }

@@ -12,7 +12,7 @@ public class FormateDate {
 	
 	public static String getTime(){
 		
-		SimpleDateFormat sdf=new SimpleDateFormat("hh:mm:ss:SSS");
+		SimpleDateFormat sdf=new SimpleDateFormat("HH:mm:ss:SSS");
 		return sdf.format(new Date());
 		
 	}

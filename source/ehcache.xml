@@ -18,12 +18,12 @@
   </defaultCache>
 
   <!-- helloworld缓存 -->
-  <cache name="HelloWorldCache"
+  <cache name="TestCache"
          maxElementsInMemory="1000"
          eternal="false"
          timeToIdleSeconds="5"
          timeToLiveSeconds="5"
          overflowToDisk="false"
-         memoryStoreEvictionPolicy="LRU"
+         memoryStoreEvictionPolicy="FIFO"
          diskSpoolBufferSizeMB="50"/>
 </ehcache>
