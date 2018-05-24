@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -183,7 +184,40 @@ public class testArrayAndList {
 		System.out.println(sl.add("a"));
 	}
 	
-	
+	/**
+	 * 
+	 * @Title: testSort   
+	 * @Description: TODO(集合排序)        
+	 * @param: 	 
+	 * @return: void      
+	 * @throws
+	 */
+	@Test
+	 public void testSort(){
+		 ArrayList<String> strAl=new ArrayList<String>();
+			strAl.add("b");
+			strAl.add("a");
+			strAl.add("c");
+			strAl.add("1");
+			strAl.add("5");
+			strAl.add("3");
+			System.out.println("--strAl排序前--");
+			for (String str: strAl) {
+				System.out.println("strAl element:"+str);
+			}
+			
+	        Collections.sort(strAl, new Comparator<String>() {    
+	            @Override    
+	            public int compare(String o1, String o2) {    
+	                return o2.compareTo(o1);    
+	            }    
+	        });
+	        
+			System.out.println("--strAl排序后--");
+			for (String str: strAl) {
+				System.out.println("strAl element:"+str);
+			}
+	 }
 	
 	
 }

@@ -52,4 +52,19 @@ Abc*/
 		System.out.println(String.format("渠道号%s非法", 2));
 		System.out.println(MessageFormat.format("该域名{0}被访问了 {1} 次.",1 ,2));
 	}
+	
+	/**
+	 * 
+	 * @Title: testCompareTo   
+	 * @Description: TODO(按字典排序比较（比较基于字符串中各个字符的 Unicode 值）
+	 * 返回int【正负0】 用于判断两个 比较对象字典顺序。)
+	 *         
+	 * @param: 	 
+	 * @return: void      
+	 * @throws
+	 */
+	@Test
+	public void testCompareTo(){
+		System.out.println("a".compareTo("是"));
+	}
 }

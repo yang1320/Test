@@ -35,7 +35,7 @@ public class testSeri {
 //		new testSeri().DeSerializeByXml();
 		
 		//new testSeri().testReflect(new Student1());
-		   ObjectOutputStream out=new ObjectOutputStream(new FileOutputStream("E:\\share\\test.txt"));
+		   ObjectOutputStream out=new ObjectOutputStream(new FileOutputStream("E:\\test\\test1.txt"));
 	   Student1 stu=new Student1();
 	   System.out.println(stu);
 		   out.writeObject(stu);
